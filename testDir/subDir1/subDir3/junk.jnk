@@ -1,0 +1,4 @@
+this is junk.
+
+this shouldn't parse as having any 
+lines or appear in the file tree

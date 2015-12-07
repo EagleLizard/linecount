@@ -1,18 +1,17 @@
 ;(function(){
 
   var fs = require('fs');
-  var nodeFactory = require('./Node.js').nodeFactory;
+
+  var FileTree = require('./FileTree.js').FileTree;
 
   var path = (process.argv.length <= 2)
               ? './'
               : process.argv[2]
               ;
-  var root: Node = nodeFactory(path);
-  console.log(root["subDirs"]);
-  // var dirList = fs.readdirSync(path);
-  // dirList.forEach((item)=>{
-  //   console.log(item);
-  //   console.log('\tisDir: ', fs.statSync('./'+item).isDirectory());
-  // });
+
+  var fileTree = new FileTree(path);
+  console.log(fileTree.out());
+  console.log(fileTree.fileList());
+  console.log('/ntotal: '+fileTree.numLines());
 
 })();
